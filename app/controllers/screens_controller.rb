@@ -5,6 +5,7 @@ class ScreensController < ApplicationController
   def index 
     render json: Screen.all
   end
+  
   def update
     if @screen.update(screen_params)
       render json: @screen, status: :ok
@@ -12,7 +13,7 @@ class ScreensController < ApplicationController
       render json: @screen.errors.full_messages
     end
   end
-
+  
   def destroy
     if @screen.destroy
       render json: {message: "Screen Deleted Succusfull"}
@@ -27,8 +28,8 @@ class ScreensController < ApplicationController
   
   def screen_params 
     params.require(:screen).permit(
-    :screen_name,
-    :capacity
+      :screen_name,
+      :capacity
     )
   end
 end

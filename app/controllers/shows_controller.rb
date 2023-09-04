@@ -4,7 +4,7 @@ class ShowsController < ApplicationController
   def index 
     render json: Show.all  
   end
-
+  
   def create 
     show = Show.new(show_params)
     if show.save
@@ -21,7 +21,7 @@ class ShowsController < ApplicationController
       @show.errors.full_messages
     end 
   end
-
+  
   def destroy
     if @show.destroy
       rander json: {message:"Show Deleted Succesfull"}

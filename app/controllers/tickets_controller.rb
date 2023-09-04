@@ -13,7 +13,6 @@ class TicketsController < ApplicationController
     id=params[:unique_id]
     unless id.presence
       render json: {message: "please give write information"}
-      
     end
     ticket=Ticket.find_by(unique_id: params[:unique_id])
     if ticket.presence
@@ -22,6 +21,7 @@ class TicketsController < ApplicationController
       render json: {errors: "No ticket prensent for your id"}
     end
   end
+  
   def create
     total_tickets = params[:ticket_purchased].to_i
     show = Show.find(params[:show_id])
@@ -38,7 +38,7 @@ class TicketsController < ApplicationController
           t.save
           show.screen.update(capacity: show.screen.capacity - total_tickets)
           render json: { message: "Tickets booked successfully" }
-        end
+      end
       else
         render json: { errors: t.errors.full_messages }, status: :unprocessable_entity
       end

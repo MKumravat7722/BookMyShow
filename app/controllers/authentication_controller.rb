@@ -12,10 +12,10 @@ class AuthenticationController < ApplicationController
       time = Time.now + 24.hours.to_i
       render json: {
         token: token
-        
-      }, status: :ok 
-    else
-      render json: { error: 'Unauthorized' }, status: :unauthorized
+        }, status: :ok 
+      else
+        render json: { error: 'Unauthorized' }, status: :unauthorized
+      end
     end
   end
-end
+  

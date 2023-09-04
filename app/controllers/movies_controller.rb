@@ -2,6 +2,7 @@ class MoviesController < ApplicationController
   skip_before_action :check_customer
   before_action :check_owner, except: [:index, :search_movie]
   before_action :set_value, only:[:update, :destroy]
+
   
   def index
     render json: Movie.all
@@ -35,7 +36,7 @@ class MoviesController < ApplicationController
     if name.blank?
       return render json: { error: "Name field can't be blank" }, status: :bad_request
     end
-    movies = Movie.where("name LIKE ?", "%#{name}%")
+    movies = Movie.where("name ILIKE ?", "%#{name}%")
     if movies.empty?
       return render json: { message: "Movie not found" }, status: :not_found
     end
