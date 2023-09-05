@@ -14,6 +14,7 @@ gem "puma", "~> 5.0"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
+gem "will_paginate" , "~>3.0"
 # gem "redis", "~> 4.0"
 gem 'jwt'
 # Use ActiveModel has_secure_password

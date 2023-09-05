@@ -1,13 +1,16 @@
 class MoviesController < ApplicationController
   skip_before_action :check_customer
   before_action :check_owner, except: [:index, :search_movie]
-  before_action :set_value, only:[:update, :destroy]
+  before_action :set_value, only:[:update, :destroy, :show]
 
   
   def index
-    render json: Movie.all
+    @movie = Movie.paginate(:page => params[:page], :per_page => 2)
+    render json: @movie
   end
-  
+  def show
+    render json: @movie
+  end
   def create
     movie=Movie.new(movie_params)
     if movie.save
@@ -46,7 +49,7 @@ class MoviesController < ApplicationController
   private
   
   def movie_params
-    params.require(:movie).permit(:name)
+    params.permit(:name, :poster)
   end
   
   def set_value
