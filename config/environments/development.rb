@@ -68,14 +68,20 @@ Rails.application.configure do
     :address => 'smtp.gmail.com',
     :port => 587,
     :user_name => 'mohitk@shriffle.com',
-    :password => '3945 7745		 3672 4178
-    4149 7318		 4658 5747
-    1265 4139		 6231 1379
-    1212 4289		 0726 1441
-    4959 3764		 1763 4067',
+    :password  => "cmuxniqvrjzjsbee", 
     :authentication => 'plain',
     :enable_starttls_auto => true
 }
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   address: "smtp.gmail.com",
+  #   port: "587",
+  #   user_name: "mohitk@shriffle.com",
+  #   password: "cmuxniqvrjzjsbee",
+  #   authentication: :login,
+  #   enable_starttls_auto: true,
+  #   openssl_verify_mode: "none"
+  # }
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
 
