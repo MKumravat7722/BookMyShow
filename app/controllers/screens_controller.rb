@@ -29,7 +29,6 @@ class ScreensController < ApplicationController
   def screen_params 
     params.require(:screen).permit(
       :screen_name,
-      :capacity
-    )
+      :capacity )
   end
 end

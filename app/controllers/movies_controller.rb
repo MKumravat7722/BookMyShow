@@ -3,14 +3,15 @@ class MoviesController < ApplicationController
   before_action :check_owner, except: [:index, :search_movie]
   before_action :set_value, only:[:update, :destroy, :show]
 
-  
   def index
     @movie = Movie.paginate(:page => params[:page], :per_page => 2)
     render json: @movie
   end
+
   def show
     render json: @movie
   end
+  
   def create
     movie=Movie.new(movie_params)
     if movie.save

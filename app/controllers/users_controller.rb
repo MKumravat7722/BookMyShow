@@ -29,6 +29,7 @@ def update
     render json: @current_user.errors.full_messages
   end
 end
+
 def user_params
   params.permit(
     :name,
